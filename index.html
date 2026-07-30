@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Farmacêutica | Excelência e Cuidado</title>
+    <meta name="description" content="Sua saúde merece atendimento especializado, confiança e dedicação. Conheça a Multi Farmacêutica.">
+    <meta name="keywords" content="farmácia, saúde, Arapongas, medicamentos, atendimento farmacêutico, Multi Farmacêutica">
+    
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:title" content="Multi Farmacêutica | Excelência e Cuidado">
+    <meta property="og:description" content="Sua saúde merece atendimento especializado, confiança e dedicação.">
+    <meta property="og:image" content="logo farmacia.jpeg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" href="logo farmacia.jpeg" type="image/jpeg">
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Pharmacy",
+      "name": "Multi Farmacêutica",
+      "image": "logo farmacia.jpeg",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Tangará, 1060 - Jardim Petrópolis",
+        "addressLocality": "Arapongas",
+        "addressRegion": "PR",
+        "postalCode": "86709-045",
+        "addressCountry": "BR"
+      },
+      "telephone": "+5543996496683"
+    }
+    </script>
+
+    <style>
+        /* CSS Variables */
+        :root {
+            --deep-blue: #0057D9;
+            --light-blue: #4DA3FF;
+            --health-green: #22C55E;
+            --white: #FFFFFF;
+            --light-gray: #F8FAFC;
+            --dark-gray: #0f172a; /* Slightly darker for better contrast */
+            --glass-bg: rgba(30, 41, 59, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-gray);
+            color: var(--light-gray);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--dark-gray); }
+        ::-webkit-scrollbar-thumb { background: var(--deep-blue); border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--light-blue); }
+
+        /* Background Animated Environment */
+        .background-wrapper {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -2;
+            overflow: hidden;
+            background: radial-gradient(circle at top right, #001f4d, var(--dark-gray) 60%);
+        }
+
+        .mesh-gradient {
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(0, 87, 217, 0.15), transparent 60%),
+                        radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.1), transparent 50%);
+            animation: rotateBg 30s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        canvas#particles {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Mouse Glow Cursor */
+        .cursor-glow {
+            position: fixed;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(77, 163, 255, 0.15) 0%, transparent 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Utilities */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--white), var(--light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #94a3b8;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 1.5rem 0;
+            z-index: 100;
+            transition: var(--transition-smooth);
+        }
+        nav.scrolled {
+            padding: 1rem 0;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-box img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(77, 163, 255, 0.4);
+        }
+        .logo-box span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 1px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute; width: 0; height: 2px;
+            bottom: -5px; left: 0;
+            background: var(--light-blue);
+            transition: var(--transition-smooth);
+        }
+        .nav-links a:hover { color: var(--white); }
+        .nav-links a:hover::after { width: 100%; }
+        
+        .btn-nav {
+            background: linear-gradient(135deg, var(--health-green), #16a34a);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            color: var(--white);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+            transition: var(--transition-smooth);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding-top: 80px;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-logo-large {
+            width: 120px;
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            box-shadow: 0 0 40px rgba(0, 87, 217, 0.6);
+            animation: heroLogoFade 1.5s ease-out forwards;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeUp 1s ease-out 0.3s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin-bottom: 3rem;
+            animation: fadeUp 1s ease-out 0.6s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            animation: fadeUp 1s ease-out 0.9s forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--health-green), #16a34a);
+            color: white;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn-primary:hover {
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+        }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Floating Icons */
+        .floating-icon {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.6;
+            filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+            animation: floatIcon 6s ease-in-out infinite;
+            z-index: 1;
+        }
+        .icon-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .icon-2 { top: 30%; right: 15%; animation-delay: 1s; }
+        .icon-3 { bottom: 25%; left: 20%; animation-delay: 2s; }
+        .icon-4 { bottom: 20%; right: 25%; animation-delay: 3s; font-size: 2rem;}
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        @keyframes heroLogoFade {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-card {
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(77, 163, 255, 0.1), transparent 50%);
+            z-index: -1;
+        }
+        .about-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .about-card p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .feature-icon {
+            width: 50px; height: 50px;
+            background: rgba(77, 163, 255, 0.1);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--light-blue);
+            font-size: 1.5rem;
+            border: 1px solid rgba(77, 163, 255, 0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transform-style: preserve-3d;
+            transition: box-shadow 0.4s;
+            cursor: pointer;
+        }
+        .service-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 87, 217, 0.2);
+        }
+        .service-icon-wrapper {
+            width: 80px; height: 80px;
+            margin: 0 auto 1.5rem;
+            background: linear-gradient(135deg, rgba(77, 163, 255, 0.2), rgba(0, 87, 217, 0.1));
+            border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.5rem;
+            color: var(--light-blue);
+            transform: translateZ(30px);
+            border: 1px solid rgba(77,163,255,0.3);
+            transition: var(--transition-smooth);
+        }
+        .service-card:hover .service-icon-wrapper {
+            background: var(--light-blue);
+            color: var(--white);
+            box-shadow: 0 0 20px var(--light-blue);
+            transform: translateZ(40px) scale(1.1);
+        }
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            transform: translateZ(20px);
+        }
+        .service-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            transform: translateZ(10px);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 0;
+            background: linear-gradient(90deg, rgba(30,41,59,0.3) 0%, rgba(0,87,217,0.1) 50%, rgba(30,41,59,0.3) 100%);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-item h4 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--white), var(--light-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        .stat-item p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .contact-card {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(30, 41, 59, 0.7);
+        }
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        .c-whatsapp { color: var(--health-green); }
+        .c-facebook { color: #1877F2; }
+        .c-instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .c-location { color: #ef4444; }
+        
+        .contact-card h3 { margin-bottom: 1rem; font-size: 1.3rem; }
+        .contact-card p { color: #94a3b8; margin-bottom: 1.5rem; font-size: 0.95rem;}
+        
+        .btn-outline {
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid var(--glass-border);
+            color: var(--white);
+            font-weight: 500;
+            transition: var(--transition-smooth);
+        }
+        .contact-card:hover .btn-outline {
+            background: var(--white);
+            color: var(--dark-gray);
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--glass-border);
+            background: rgba(15, 23, 42, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+        .footer-glow {
+            position: absolute;
+            bottom: -50px; left: 50%;
+            transform: translateX(-50%);
+            width: 300px; height: 100px;
+            background: var(--deep-blue);
+            filter: blur(80px);
+            opacity: 0.5;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+        .footer-logo { display: flex; align-items: center; gap: 15px;}
+        .footer-logo img { width: 40px; border-radius: 10px; }
+        .footer-logo span { font-weight: 700; font-size: 1.2rem; }
+        .footer-social { display: flex; gap: 1rem; }
+        .footer-social a {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition-smooth);
+        }
+        .footer-social a:hover { background: var(--light-blue); color: #fff; transform: translateY(-3px); }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* Floating WhatsApp Button */
+        .float-wpp {
+            position: fixed;
+            bottom: 30px; right: 30px;
+            width: 60px; height: 60px;
+            background: var(--health-green);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
+            z-index: 1000;
+            animation: pulseWpp 2s infinite;
+            transition: var(--transition-smooth);
+        }
+        .float-wpp:hover {
+            transform: scale(1.1);
+        }
+        @keyframes pulseWpp {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3.5rem; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero-buttons { flex-direction: column; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .floating-icon { display: none; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="background-wrapper">
+        <div class="mesh-gradient"></div>
+    </div>
+    <canvas id="particles"></canvas>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo-box">
+                <img src="logo farmacia.jpeg" alt="Logo Multi Farmacêutica">
+                <span>Multi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="btn-nav magnetic">
+                <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <!-- Floating Elements -->
+        <span class="floating-icon icon-1">💊</span>
+        <span class="floating-icon icon-2">❤️</span>
+        <span class="floating-icon icon-3">🩺</span>
+        <span class="floating-icon icon-4">🌿</span>
+
+        <div class="container hero-content">
+            <img src="logo farmacia.jpeg" alt="Logo" class="hero-logo-large magnetic">
+            <h1><span class="gradient-text">Multi Farmacêutica</span></h1>
+            <p>Sua saúde merece atendimento especializado, confiança e dedicação. Descubra o verdadeiro conceito de cuidado humanizado.</p>
+            <div class="hero-buttons">
+                <a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-primary magnetic">
+                    <i class="fab fa-whatsapp"></i> 💬 Falar no WhatsApp
+                </a>
+                <a href="https://www.google.com/maps/place/R.+Tangar%C3%A1,+1060+-+Jardim+Petr%C3%B3polis,+Arapongas+-+PR,+86709-045/@-23.4057,-51.459,17z/data=!4m6!3m5!1s0x94eca38eeeddbb01:0x5ef27065333cafa6!8m2!3d-23.4056427!4d-51.459003!16s%2Fg%2F11yqs66w4l?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDcyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-secondary magnetic">
+                    <i class="fas fa-map-marker-alt"></i> 📍 Como Chegar
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="about">
+        <div class="container about-grid">
+            <div class="reveal">
+                <h2 class="gradient-text">Muito mais que uma farmácia, um espaço de cuidado.</h2>
+                <p>Na Multi Farmacêutica, unimos tecnologia, sofisticação e o mais puro atendimento humanizado. Nosso ambiente foi desenhado para proporcionar tranquilidade, enquanto nossa equipe foca no que realmente importa: a sua saúde e bem-estar.</p>
+                <div class="about-features">
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-shield-heart"></i></div>
+                        <span>Confiança e Ética</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+                        <span>Profissionais Qualificados</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-box-open"></i></div>
+                        <span>Amplo Estoque</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                        <span>Saúde Integrativa</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-card glass-panel reveal tilt">
+                <h2>Nossa Missão</h2>
+                <p>Transformar a experiência farmacêutica através de um modelo premium de atendimento, garantindo acesso à saúde com excelência, rapidez e acolhimento.</p>
+                <br>
+                <h2>Visão</h2>
+                <p>Ser referência absoluta na região de Arapongas, não apenas pela estrutura moderna, mas pelo impacto positivo na qualidade de vida dos nossos clientes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="services">
+        <div class="container">
+            <h2 class="section-title gradient-text reveal">Nossas Especialidades</h2>
+            <p class="section-subtitle reveal">Cuidado completo, pensado para você em cada detalhe.</p>
+            
+            <div class="services-grid">
+                <div class="service-card glass-panel reveal tilt">
+                    <div class="service-icon-wrapper"><i class="fas fa-pills"></i></div>
+                    <h3>Medicamentos</h3>
+                    <p>Trabalhamos com os melhores laboratórios, garantindo procedência, diversidade e as melhores condições para o seu tratamento.</p>
+                </div>
+                
+                <div class="service-card glass-panel reveal tilt" style="transition-delay: 0.1s">
+                    <div class="service-icon-wrapper"><i class="fas fa-stethoscope"></i></div>
+                    <h3>Atendimento Farmacêutico</h3>
+                    <p>Orientação especializada, aferição de pressão, controle glicêmico e acompanhamento próximo para sua segurança.</p>
+                </div>
+                
+                <div class="service-card glass-panel reveal tilt" style="transition-delay: 0.2s">
+                    <div class="service-icon-wrapper"><i class="fas fa-spa"></i></div>
+                    <h3>Saúde e Bem-estar</h3>
+                    <p>Uma linha completa de dermocosméticos, vitaminas e suplementos das marcas mais renomadas do mercado.</p>
+                </div>
+                
+                <div class="service-card glass-panel reveal tilt" style="transition-delay: 0.3s">
+                    <div class="service-icon-wrapper"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Personalizado</h3>
+                    <p>Cada cliente é único. Oferecemos um atendimento focado na sua necessidade específica, com empatia e respeito.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counters -->
+    <section class="stats-section">
+        <div class="container stats-grid">
+            <div class="stat-item reveal">
+                <h4 class="counter" data-target="100">0</h4><h4>%</h4>
+                <p>Compromisso</p>
+            </div>
+            <div class="stat-item reveal">
+                <h4>★★★★★</h4>
+                <p>Atendimento</p>
+            </div>
+            <div class="stat-item reveal">
+                <h4 class="counter" data-target="100">0</h4><h4>%</h4>
+                <p>Qualidade</p>
+            </div>
+            <div class="stat-item reveal">
+                <h4 class="counter" data-target="100">0</h4><h4>%</h4>
+                <p>Confiança</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato Section -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2 class="section-title gradient-text reveal">Conecte-se Conosco</h2>
+            <p class="section-subtitle reveal">Estamos sempre prontos para atender você com a máxima excelência.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card glass-panel reveal">
+                    <i class="fab fa-whatsapp contact-icon c-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>Atendimento rápido e direto. Tire dúvidas e faça pedidos.</p>
+                    <a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="btn-outline">Enviar Mensagem</a>
+                </div>
+                
+                <div class="contact-card glass-panel reveal" style="transition-delay: 0.1s">
+                    <i class="fab fa-facebook contact-icon c-facebook"></i>
+                    <h3>Facebook</h3>
+                    <p>Acompanhe nossas novidades, dicas de saúde e ofertas.</p>
+                    <a href="https://www.facebook.com/multifarmaceutica" target="_blank" class="btn-outline">Curtir Página</a>
+                </div>
+                
+                <div class="contact-card glass-panel reveal" style="transition-delay: 0.2s">
+                    <i class="fab fa-instagram contact-icon c-instagram"></i>
+                    <h3>Instagram</h3>
+                    <p>Siga nosso dia a dia e acesse conteúdos exclusivos.</p>
+                    <a href="https://www.instagram.com/multifarmaceutica" target="_blank" class="btn-outline">Seguir Perfil</a>
+                </div>
+                
+                <div class="contact-card glass-panel reveal" style="transition-delay: 0.3s">
+                    <i class="fas fa-map-marker-alt contact-icon c-location"></i>
+                    <h3>Localização</h3>
+                    <p>Rua Tangará, 1060<br>Jardim Petrópolis, Arapongas - PR</p>
+                    <a href="https://www.google.com/maps/place/R.+Tangar%C3%A1,+1060+-+Jardim+Petr%C3%B3polis,+Arapongas+-+PR,+86709-045/@-23.4057,-51.459,17z/data=!4m6!3m5!1s0x94eca38eeeddbb01:0x5ef27065333cafa6!8m2!3d-23.4056427!4d-51.459003!16s%2Fg%2F11yqs66w4l?hl=pt-BR&entry=ttu&g_ep=EgoyMDI2MDcyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-outline">Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-glow"></div>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                <img src="logo farmacia.jpeg" alt="Logo">
+                <span>Multi Farmacêutica</span>
+            </div>
+            
+            <div class="footer-social">
+                <a href="https://www.instagram.com/multifarmaceutica" target="_blank" class="magnetic"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/multifarmaceutica" target="_blank" class="magnetic"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="magnetic"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Multi Farmacêutica — Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WPP -->
+    <a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="float-wpp magnetic">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Interactivity Script -->
+    <script>
+        // --- Custom Mouse Spotlight Glow ---
+        const cursorGlow = document.getElementById('cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+
+        // --- Navbar Scroll Effect ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if(window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // --- Scroll Reveal with Intersection Observer ---
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        
+        const revealOnScroll = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if(!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                
+                // Trigger Counters if inside
+                if(entry.target.classList.contains('stat-item')){
+                    const counter = entry.target.querySelector('.counter');
+                    if(counter && !counter.classList.contains('counted')){
+                        runCounter(counter);
+                        counter.classList.add('counted');
+                    }
+                }
+                observer.unobserve(entry.target);
+            });
+        }, revealOptions);
+        
+        reveals.forEach(reveal => revealOnScroll.observe(reveal));
+
+        // --- Animated Counters ---
+        function runCounter(counter) {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // 2 seconds
+            const increment = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if(current < target) {
+                    counter.innerText = Math.ceil(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        }
+
+        // --- 3D Tilt Effect ---
+        document.querySelectorAll('.tilt').forEach(el => {
+            el.addEventListener('mousemove', e => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10;
+                const rotateY = ((x - centerX) / centerX) * 10;
+                
+                el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+            });
+        });
+
+        // --- Magnetic Buttons Effect ---
+        document.querySelectorAll('.magnetic').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                // Aplica deslocamento suave
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = `translate(0px, 0px)`;
+            });
+        });
+
+        // --- Background Particle System (Canvas) ---
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initParticles();
+        });
+
+        class Particle {
+            constructor(x, y, dx, dy, size, color) {
+                this.x = x; this.y = y;
+                this.dx = dx; this.dy = dy;
+                this.size = size; this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+            }
+            update() {
+                if(this.x + this.size > canvas.width || this.x - this.size < 0) this.dx = -this.dx;
+                if(this.y + this.size > canvas.height || this.y - this.size < 0) this.dy = -this.dy;
+                this.x += this.dx;
+                this.y += this.dy;
+                this.draw();
+            }
+        }
+
+        function initParticles() {
+            particlesArray = [];
+            const numParticles = (canvas.width * canvas.height) / 15000; // Density
+            for(let i = 0; i < numParticles; i++) {
+                let size = (Math.random() * 2) + 0.5;
+                let x = Math.random() * (innerWidth - size * 2) + size;
+                let y = Math.random() * (innerHeight - size * 2) + size;
+                let dx = (Math.random() - 0.5) * 0.5;
+                let dy = (Math.random() - 0.5) * 0.5;
+                // Mix of light blue and white with high transparency
+                let color = Math.random() > 0.5 ? 'rgba(77, 163, 255, 0.2)' : 'rgba(255, 255, 255, 0.1)';
+                particlesArray.push(new Particle(x, y, dx, dy, size, color));
+            }
+        }
+
+        function animateParticles() {
+            requestAnimationFrame(animateParticles);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for(let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+        }
+
+        initParticles();
+        animateParticles();
+    </script>
+</body>
+</html>
