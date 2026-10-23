@@ -1268,7 +1268,20 @@ mobileToggle.setAttribute('aria-expanded','false');
 mobileToggle.addEventListener('click', openMobileNav);
 closeMobileNav.addEventListener('click', closeMobileMenu);
 mobileNavOverlay.addEventListener('click', closeMobileMenu);
-mobileNavDrawer.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+mobileNavDrawer.querySelectorAll('a').forEach(link => link.addEventListener('click', event => {
+  const href = link.getAttribute('href');
+  const target = href && href.startsWith('#') ? document.querySelector(href) : null;
+  if(!target) return;
+  event.preventDefault();
+  /* Substitui o estado temporário do painel pelo destino, evitando que history.back()
+     cancele a navegação do link ou deixe um hash fantasma no histórico. */
+  mobileToggle.setAttribute('aria-expanded','false');
+  mobileNavOverlay.classList.remove('active');
+  closeLayer(mobileNavDrawer, false);
+  historyLayer = false;
+  history.replaceState(null, '', href);
+  target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+}));
 
 /* ✅ Android/iOS back closes the active overlay instead of navigating away */
 window.addEventListener('popstate', () => {
