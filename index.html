@@ -2,20 +2,51 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Multi Farmacêutica | Excelência e Cuidado em Arapongas</title>
 <meta name="description" content="Multi Farmacêutica em Arapongas - Medicamentos, dermocosméticos, vitaminas e cuidados pessoais com atendimento humanizado.">
-<meta name="keywords" content="farmácia, saúde, Arapongas, medicamentos, dermocosméticos, vitaminas, Multi Farmacêutica">
 <meta property="og:title" content="Multi Farmacêutica | Excelência e Cuidado">
 <meta property="og:description" content="Sua saúde merece atendimento especializado, confiança e dedicação.">
 <meta property="og:image" content="logo farmacia.jpeg">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://www.multifarmaceutica.com.br/">
+<meta property="og:locale" content="pt_BR">
 <link rel="icon" href="logo farmacia.jpeg" type="image/jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Pharmacy","name":"Multi Farmacêutica","image":"logo farmacia.jpeg","address":{"@type":"PostalAddress","streetAddress":"Rua Tangará, 1060 - Jardim Petrópolis","addressLocality":"Arapongas","addressRegion":"PR","postalCode":"86709-045","addressCountry":"BR"},"telephone":"+5543996496683"}</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Pharmacy",
+  "name":"Multi Farmacêutica",
+  "image":"https://www.multifarmaceutica.com.br/logo-farmacia.jpeg",
+  "url":"https://www.multifarmaceutica.com.br/",
+  "priceRange":"$$",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Rua Tangará, 1060 - Jardim Petrópolis",
+    "addressLocality":"Arapongas",
+    "addressRegion":"PR",
+    "postalCode":"86709-045",
+    "addressCountry":"BR"
+  },
+  "geo":{"@type":"GeoCoordinates","latitude":-23.4057,"longitude":-51.4590},
+  "telephone":"+5543996496683",
+  "openingHoursSpecification":[
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"07:30","closes":"10:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"14:00","closes":"22:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"15:00","closes":"18:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":["Sunday","PublicHolidays"],"opens":"09:00","closes":"13:00"}
+  ],
+  "sameAs":[
+    "https://www.facebook.com/multifarmaceutica",
+    "https://www.instagram.com/multifarmaceutica"
+  ]
+}
+</script>
 
 <style>
 :root{
@@ -43,6 +74,12 @@ input,textarea{font-family:inherit}
 ::-webkit-scrollbar-thumb:hover{background:var(--light-blue)}
 .container{max-width:1280px;margin:0 auto;padding:0 20px}
 
+/* ✅ Acessibilidade: só para leitores de tela */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ✅ Remove o delay de 300ms de tap no mobile */
+button,a,.chip,.cat-link,.header-action,.product-card,.btn,.btn-add,.btn-fav{touch-action:manipulation}
+
 .top-bar{background:linear-gradient(90deg,var(--deep-blue-dark),var(--deep-blue));color:#fff;font-size:.82rem;padding:8px 0}
 .top-bar .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
 .top-bar-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -60,9 +97,9 @@ input,textarea{font-family:inherit}
 .logo-box .logo-text span{font-size:.72rem;color:var(--text-soft);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
 
 .search-bar{position:relative;width:100%;max-width:620px;margin:0 auto}
-.search-bar input{width:100%;padding:14px 130px 14px 48px;border:2px solid var(--mid-gray);border-radius:50px;font-size:.95rem;background:var(--light-gray);transition:var(--transition);outline:none}
+.search-bar input{width:100%;padding:14px 130px 14px 48px;border:2px solid var(--mid-gray);border-radius:50px;font-size:.95rem;background:var(--light-gray);transition:var(--transition);outline:none;-webkit-appearance:none;appearance:none}
 .search-bar input:focus{border-color:var(--deep-blue);background:#fff;box-shadow:0 0 0 4px rgba(0,87,217,.08)}
-.search-bar .fa-magnifying-glass{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--text-soft);font-size:1rem}
+.search-bar .fa-magnifying-glass{position:absolute;left:20px;top:50%;transform:translateY(-50%);color:var(--text-soft);font-size:1rem;pointer-events:none}
 .search-bar .search-btn{position:absolute;right:6px;top:50%;transform:translateY(-50%);background:linear-gradient(135deg,var(--deep-blue),var(--light-blue));color:#fff;padding:9px 22px;border-radius:50px;font-weight:600;font-size:.85rem;transition:var(--transition)}
 .search-bar .search-btn:hover{filter:brightness(1.1);transform:translateY(-50%) scale(1.03)}
 
@@ -74,16 +111,32 @@ input,textarea{font-family:inherit}
 .cart-btn .cart-count.visible{display:flex}
 .cart-btn.pulse i{animation:cartPulse .6s ease}
 @keyframes cartPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.25);color:var(--health-green)}}
-.mobile-menu-toggle{display:none;font-size:1.4rem;color:var(--deep-blue);padding:8px}
+.mobile-menu-toggle{display:none;font-size:1.4rem;color:var(--deep-blue);padding:8px;min-width:44px;min-height:44px;align-items:center;justify-content:center;border-radius:10px}
+.mobile-menu-toggle:hover{background:var(--ice)}
 
+/* ✅ Barra de categorias (agora presente no HTML) */
 .category-nav{background:#fff;border-top:1px solid var(--border);padding:0}
-.category-nav .container{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.category-nav .container{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;overscroll-behavior-x:contain}
 .category-nav .container::-webkit-scrollbar{display:none}
-.cat-link{display:inline-flex;align-items:center;gap:8px;padding:14px 18px;font-size:.88rem;font-weight:500;color:var(--text-soft);white-space:nowrap;border-bottom:3px solid transparent;transition:var(--transition);flex-shrink:0}
+.cat-link{display:inline-flex;align-items:center;gap:8px;padding:14px 18px;font-size:.88rem;font-weight:500;color:var(--text-soft);white-space:nowrap;border-bottom:3px solid transparent;transition:var(--transition);flex-shrink:0;background:none;cursor:pointer}
 .cat-link i{font-size:.95rem;color:var(--deep-blue)}
 .cat-link:hover,.cat-link.active{color:var(--deep-blue);border-bottom-color:var(--deep-blue);background:var(--ice)}
 .cat-link.highlight{color:var(--accent-orange);font-weight:600}
 .cat-link.highlight i{color:var(--accent-orange)}
+
+/* ✅ Menu mobile lateral */
+.mobile-menu-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:var(--transition);z-index:1996}
+.mobile-menu-overlay.active{opacity:1;visibility:visible}
+.mobile-menu{position:fixed;top:0;left:0;width:82%;max-width:320px;height:100vh;height:100dvh;background:#fff;z-index:1997;transform:translateX(-100%);transition:transform .35s cubic-bezier(.25,.8,.25,1);display:flex;flex-direction:column;box-shadow:20px 0 60px rgba(0,0,0,.2);padding-bottom:env(safe-area-inset-bottom);overscroll-behavior:contain}
+.mobile-menu.active{transform:translateX(0)}
+.mobile-menu-header{display:flex;justify-content:space-between;align-items:center;padding:20px;border-bottom:1px solid var(--border);flex-shrink:0}
+.mobile-menu-header strong{font-size:1.1rem;color:var(--deep-blue)}
+.mobile-menu-close{width:44px;height:44px;border-radius:50%;background:var(--light-gray);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--text-soft);transition:var(--transition)}
+.mobile-menu-close:hover{background:#fee2e2;color:#ef4444}
+.mobile-menu ul{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px}
+.mobile-menu ul a{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:12px;font-weight:500;color:var(--text);transition:var(--transition);font-size:1rem}
+.mobile-menu ul a:hover,.mobile-menu ul a:active{background:var(--ice);color:var(--deep-blue)}
+.mobile-menu ul a i{width:22px;text-align:center;color:var(--deep-blue);font-size:1.1rem}
 
 .hero{background:linear-gradient(120deg,#003d99 0%,var(--deep-blue) 45%,var(--light-blue) 100%);color:#fff;padding:70px 0 90px;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(255,255,255,.13),transparent 70%);border-radius:50%}
@@ -126,9 +179,9 @@ section{padding:60px 0}
 .section-head p{color:var(--text-soft);max-width:560px;margin:0 auto;font-size:1rem}
 
 .products-toolbar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
-.filter-chips{display:flex;gap:8px;overflow-x:auto;padding:4px;scrollbar-width:none;flex:1}
+.filter-chips{display:flex;gap:8px;overflow-x:auto;padding:4px;scrollbar-width:none;flex:1;overscroll-behavior-x:contain}
 .filter-chips::-webkit-scrollbar{display:none}
-.chip{background:#fff;border:1.5px solid var(--border);color:var(--text-soft);padding:9px 18px;border-radius:50px;font-size:.85rem;font-weight:500;white-space:nowrap;transition:var(--transition);display:inline-flex;align-items:center;gap:7px;flex-shrink:0}
+.chip{background:#fff;border:1.5px solid var(--border);color:var(--text-soft);padding:9px 18px;border-radius:50px;font-size:.85rem;font-weight:500;white-space:nowrap;transition:var(--transition);display:inline-flex;align-items:center;gap:7px;flex-shrink:0;min-height:40px}
 .chip i{font-size:.85rem}
 .chip:hover{border-color:var(--light-blue);color:var(--deep-blue)}
 .chip.active{background:var(--deep-blue);border-color:var(--deep-blue);color:#fff;box-shadow:0 6px 16px rgba(0,87,217,.28)}
@@ -154,7 +207,7 @@ section{padding:60px 0}
 .product-price .price-int{font-size:1.35rem;font-weight:800}.product-price .price-cents{font-size:.85rem;font-weight:700}
 .product-price .label{font-size:.72rem;color:var(--text-soft);font-weight:500;margin-left:4px}
 .product-actions{display:flex;gap:8px}
-.btn-add{flex:1;background:linear-gradient(135deg,var(--deep-blue),var(--light-blue));color:#fff;padding:11px;border-radius:10px;font-weight:600;font-size:.85rem;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:7px}
+.btn-add{flex:1;background:linear-gradient(135deg,var(--deep-blue),var(--light-blue));color:#fff;padding:11px;border-radius:10px;font-weight:600;font-size:.85rem;transition:var(--transition);display:flex;align-items:center;justify-content:center;gap:7px;min-height:42px}
 .btn-add:hover{filter:brightness(1.1);box-shadow:0 6px 18px rgba(0,87,217,.35)}
 .btn-add.added{background:var(--health-green)}
 .btn-fav{width:42px;height:42px;border-radius:10px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-soft);transition:var(--transition);flex-shrink:0}
@@ -185,963 +238,4 @@ section{padding:60px 0}
 .service-card{background:#fff;border-radius:var(--radius);padding:32px 24px;text-align:center;box-shadow:var(--shadow-sm);transition:var(--transition);border:1px solid transparent}
 .service-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--ice)}
 .service-icon{width:70px;height:70px;margin:0 auto 20px;background:linear-gradient(135deg,var(--ice),#dbeafe);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;color:var(--deep-blue);transition:var(--transition)}
-.service-card:hover .service-icon{background:linear-gradient(135deg,var(--deep-blue),var(--light-blue));color:#fff;transform:rotate(-6deg) scale(1.05)}
-.service-card h3{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:10px}
-.service-card p{font-size:.88rem;color:var(--text-soft);line-height:1.55}
-
-.qr-section{background:linear-gradient(135deg,#001f4d,#003d99);color:#fff;border-radius:var(--radius-lg);padding:60px 40px;text-align:center;position:relative;overflow:hidden;margin:20px 0}
-.qr-section::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(34,197,94,.25),transparent 70%);border-radius:50%}
-.qr-section::after{content:'';position:absolute;bottom:-100px;left:-60px;width:280px;height:280px;background:radial-gradient(circle,rgba(77,163,255,.3),transparent 70%);border-radius:50%}
-.qr-content{position:relative;z-index:2}
-.qr-section .eyebrow{background:rgba(255,255,255,.15);color:#a7f3d0;border:1px solid rgba(255,255,255,.2)}
-.qr-section h2{color:#fff;margin-bottom:12px}
-.qr-section p{color:rgba(255,255,255,.85);max-width:540px;margin:0 auto 30px}
-.qr-card-inner{display:flex;gap:40px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:30px}
-.qr-image-box{background:#fff;padding:18px;border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.3);cursor:pointer;transition:var(--transition)}
-.qr-image-box:hover{transform:scale(1.04) rotate(-1deg);box-shadow:0 25px 60px rgba(0,0,0,.4)}
-.qr-image-box img{width:210px;height:210px;object-fit:cover;border-radius:12px}
-.qr-text-side{text-align:left;max-width:340px}
-.qr-text-side h3{font-size:1.3rem;margin-bottom:10px}
-.qr-text-side p{color:rgba(255,255,255,.8);font-size:.9rem;margin-bottom:20px}
-.btn-whatsapp{background:var(--health-green);color:#fff;padding:14px 28px;border-radius:50px;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:var(--transition);box-shadow:0 10px 25px rgba(34,197,94,.4)}
-.btn-whatsapp:hover{background:var(--health-green-dark);transform:translateY(-3px);box-shadow:0 15px 30px rgba(34,197,94,.5)}
-
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.contact-card{background:#fff;border-radius:var(--radius);padding:30px 24px;text-align:center;box-shadow:var(--shadow-sm);transition:var(--transition);border:1px solid transparent}
-.contact-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--ice)}
-.contact-icon-wrap{width:64px;height:64px;margin:0 auto 18px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:1.7rem;transition:var(--transition)}
-.c-wpp{background:#dcfce7;color:#16a34a}
-.c-fb{background:#dbeafe;color:#1877F2}
-.c-ig{background:linear-gradient(45deg,#fce7f3,#fde68a);color:#dc2743}
-.c-map{background:#fee2e2;color:#ef4444}
-.contact-card:hover .contact-icon-wrap{transform:scale(1.1) rotate(-6deg)}
-.contact-card h3{font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:8px}
-.contact-card p{font-size:.85rem;color:var(--text-soft);margin-bottom:16px;line-height:1.5}
-.btn-contact{display:inline-flex;align-items:center;gap:7px;background:var(--deep-blue);color:#fff;padding:10px 20px;border-radius:50px;font-weight:600;font-size:.85rem;transition:var(--transition)}
-.btn-contact:hover{background:var(--deep-blue-dark);transform:translateY(-2px)}
-
-.site-footer{background:#0f172a;color:#cbd5e1;padding:50px 0 0;margin-top:40px}
-.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px}
-.footer-brand .logo-box{margin-bottom:18px}
-.footer-brand .logo-box .logo-text strong{color:#fff}
-.footer-brand .logo-box .logo-text span{color:#94a3b8}
-.footer-brand p{font-size:.88rem;color:#94a3b8;line-height:1.7;max-width:320px;margin-bottom:20px}
-.footer-col h4{color:#fff;font-size:1rem;font-weight:700;margin-bottom:18px}
-.footer-col ul li{margin-bottom:10px}
-.footer-col ul a{font-size:.87rem;color:#94a3b8;transition:var(--transition);display:inline-flex;align-items:center;gap:8px}
-.footer-col ul a:hover{color:#fff;padding-left:4px}
-.footer-col ul a i{font-size:.75rem;color:var(--light-blue)}
-.footer-contact-item{display:flex;gap:12px;margin-bottom:14px;font-size:.87rem;color:#94a3b8}
-.footer-contact-item i{color:var(--light-blue);margin-top:3px;flex-shrink:0}
-.footer-social-row{display:flex;gap:10px;margin-top:8px}
-.footer-social-row a{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:#cbd5e1;transition:var(--transition)}
-.footer-social-row a:hover{background:var(--deep-blue);color:#fff;transform:translateY(-3px)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding:20px 0;text-align:center;font-size:.82rem;color:#64748b}
-.footer-bottom strong{color:#94a3b8}
-
-.cart-overlay{position:fixed;inset:0;background:rgba(15,23,42,.55);backdrop-filter:blur(4px);opacity:0;visibility:hidden;transition:var(--transition);z-index:1998}
-.cart-overlay.active{opacity:1;visibility:visible}
-.cart-drawer{position:fixed;top:0;right:0;width:100%;max-width:440px;height:100vh;background:#fff;z-index:1999;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s cubic-bezier(.25,.8,.25,1);box-shadow:-20px 0 60px rgba(0,0,0,.2)}
-.cart-drawer.active{transform:translateX(0)}
-.cart-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.cart-header h3{font-size:1.15rem;font-weight:700;display:flex;align-items:center;gap:10px;color:var(--text)}
-.cart-header h3 i{color:var(--deep-blue)}
-.cart-close{width:38px;height:38px;border-radius:50%;background:var(--light-gray);display:flex;align-items:center;justify-content:center;color:var(--text-soft);font-size:1rem;transition:var(--transition)}
-.cart-close:hover{background:#fee2e2;color:#ef4444;transform:rotate(90deg)}
-.cart-items{flex:1;overflow-y:auto;padding:18px 22px}
-.cart-empty{text-align:center;padding:60px 20px;color:var(--text-soft)}
-.cart-empty i{font-size:3.5rem;color:var(--mid-gray);margin-bottom:18px;display:block}
-.cart-empty h4{color:var(--text);font-size:1.05rem;margin-bottom:8px}
-.cart-empty p{font-size:.88rem}
-.cart-item{display:grid;grid-template-columns:70px 1fr auto;gap:14px;padding:14px;border-radius:12px;background:var(--light-gray);margin-bottom:12px;align-items:center}
-.cart-item-img{width:70px;height:70px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:6px}
-.cart-item-img img{max-width:100%;max-height:100%;object-fit:contain}
-.cart-item-info{min-width:0}
-.cart-item-name{font-size:.85rem;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.cart-item-price{font-size:.9rem;font-weight:700;color:var(--deep-blue)}
-.cart-item-controls{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.qty-control{display:flex;align-items:center;background:#fff;border-radius:8px;overflow:hidden;border:1px solid var(--border)}
-.qty-control button{width:28px;height:28px;display:flex;align-items:center;justify-content:center;color:var(--deep-blue);font-size:.75rem;transition:var(--transition)}
-.qty-control button:hover{background:var(--ice)}
-.qty-control span{min-width:26px;text-align:center;font-size:.82rem;font-weight:600}
-.cart-remove{color:#ef4444;font-size:.75rem;transition:var(--transition);padding:4px}
-.cart-remove:hover{text-decoration:underline}
-.cart-footer{padding:20px 24px;border-top:1px solid var(--border);background:#fff}
-.cart-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.cart-total span:first-child{font-size:.9rem;color:var(--text-soft);font-weight:500}
-.cart-total span:last-child{font-size:1.3rem;font-weight:800;color:var(--deep-blue)}
-.cart-note{font-size:.75rem;color:var(--text-soft);text-align:center;margin-bottom:14px;line-height:1.5}
-.btn-checkout{width:100%;background:linear-gradient(135deg,var(--health-green),var(--health-green-dark));color:#fff;padding:15px;border-radius:12px;font-weight:700;font-size:.95rem;display:flex;align-items:center;justify-content:center;gap:10px;transition:var(--transition);box-shadow:0 8px 20px rgba(34,197,94,.3)}
-.btn-checkout:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(34,197,94,.45)}
-
-.float-wpp{position:fixed;bottom:26px;right:26px;width:60px;height:60px;background:linear-gradient(135deg,var(--health-green),var(--health-green-dark));color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 10px 30px rgba(34,197,94,.5);z-index:990;transition:var(--transition);animation:pulseWpp 2.4s infinite}
-.float-wpp:hover{transform:scale(1.1) rotate(6deg)}
-@keyframes pulseWpp{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}70%{box-shadow:0 0 0 18px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-
-.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;visibility:hidden;transition:var(--transition);padding:20px}
-.modal-overlay.active{opacity:1;visibility:visible}
-.modal-content{background:#fff;border-radius:22px;max-width:420px;width:100%;padding:36px 28px;text-align:center;position:relative;transform:scale(.9);transition:var(--transition)}
-.modal-overlay.active .modal-content{transform:scale(1)}
-.modal-close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:var(--light-gray);display:flex;align-items:center;justify-content:center;color:var(--text-soft);transition:var(--transition)}
-.modal-close:hover{background:#fee2e2;color:#ef4444;transform:rotate(90deg)}
-.modal-content h3{font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:16px}
-.modal-qr-large{width:230px;height:230px;margin:0 auto 16px;padding:10px;background:#fff;border-radius:16px;box-shadow:var(--shadow-md)}
-.modal-qr-large img{width:100%;height:100%;object-fit:cover;border-radius:10px}
-
-.toast{
-  position:fixed;bottom:100px;right:26px;
-  background:#0f172a;color:#fff;
-  padding:14px 22px;border-radius:12px;
-  box-shadow:0 12px 30px rgba(0,0,0,.3);
-  display:flex;align-items:center;gap:12px;
-  font-size:.9rem;font-weight:500;
-  z-index:1500;
-  transform:translateY(calc(100% + 120px));
-  opacity:0;
-  visibility:hidden;
-  transition:transform .4s cubic-bezier(.25,.8,.25,1),opacity .3s ease,visibility 0s linear .4s;
-  max-width:340px;
-  pointer-events:none;
-}
-.toast.show{
-  transform:translateY(0);
-  opacity:1;
-  visibility:visible;
-  transition:transform .4s cubic-bezier(.25,.8,.25,1),opacity .3s ease,visibility 0s linear 0s;
-}
-.toast i{color:var(--health-green);font-size:1.2rem}
-
-@media(max-width:1024px){
-  .main-header .container{grid-template-columns:auto 1fr auto;gap:16px}
-  .logo-box .logo-text span{display:none}
-  .hero h1{font-size:2.4rem}
-  .hero-inner{grid-template-columns:1fr;gap:40px}
-  .hero-visual{display:none}
-  .features-bar .container{grid-template-columns:repeat(2,1fr);gap:16px}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:30px}
-  .about-grid{grid-template-columns:1fr;gap:40px}
-}
-@media(max-width:768px){
-  html{scroll-padding-top:120px}
-  .top-bar-left span:nth-child(n+2){display:none}
-  .top-bar{font-size:.75rem}
-  .main-header{padding:12px 0}
-  .main-header .container{grid-template-columns:auto auto 1fr auto;gap:10px}
-  .logo-box img{width:42px;height:42px}
-  .logo-box .logo-text strong{font-size:1rem}
-  .search-bar{grid-column:1/-1;order:5;max-width:100%;margin-top:4px}
-  .search-bar input{padding:11px 100px 11px 40px;font-size:.85rem}
-  .search-bar .fa-magnifying-glass{left:16px;font-size:.85rem}
-  .search-bar .search-btn{padding:7px 16px;font-size:.78rem}
-  .mobile-menu-toggle{display:flex;align-items:center;justify-content:center;order:2}
-  .logo-box{order:1}
-  .header-actions{order:3;grid-column:auto}
-  .header-action span{display:none}
-  .header-action{padding:6px 8px}
-  .header-action i{font-size:1.15rem}
-  .category-nav .container{padding:0 12px}
-  .cat-link{padding:12px 12px;font-size:.82rem}
-  .hero{padding:40px 0 80px}
-  .hero h1{font-size:1.9rem}
-  .hero p{font-size:.95rem}
-  .hero-buttons .btn{width:100%;justify-content:center;padding:13px 22px;font-size:.9rem}
-  .features-bar{padding:20px 0;margin-top:-20px}
-  .features-bar .container{grid-template-columns:1fr;gap:12px}
-  .feature i{width:44px;height:44px;font-size:1.4rem}
-  .feature strong{font-size:.85rem}
-  .feature span{font-size:.73rem}
-  section{padding:44px 0}
-  .section-head h2{font-size:1.6rem}
-  .section-head p{font-size:.9rem}
-  .products-grid{grid-template-columns:repeat(2,1fr);gap:12px}
-  .product-image{height:160px;padding:12px}
-  .product-body{padding:12px}
-  .product-name{font-size:.85rem;min-height:36px}
-  .product-desc{display:none}
-  .product-price{font-size:1.1rem}
-  .btn-add{padding:9px;font-size:.78rem}
-  .btn-fav{width:36px;height:36px}
-  .product-badge{font-size:.62rem;padding:4px 9px;top:10px;left:10px}
-  .services-grid{grid-template-columns:1fr}
-  .qr-section{padding:40px 22px}
-  .qr-image-box img{width:170px;height:170px}
-  .qr-text-side{text-align:center}
-  .qr-card-inner{gap:24px}
-  .footer-grid{grid-template-columns:1fr;gap:26px}
-  .float-wpp{width:54px;height:54px;font-size:1.5rem;bottom:20px;right:20px}
-  .cart-drawer{max-width:100%}
-  .toast{right:16px;bottom:88px;left:16px;max-width:none}
-  .modal-qr-large{width:200px;height:200px}
-}
-@media(max-width:400px){
-  .products-grid{grid-template-columns:1fr}
-  .product-image{height:200px}
-}
-
-/* ========== RESPONSIVIDADE ADICIONAL ========== */
-@media(max-width:1024px){
-  .main-header .container{min-width:0}
-  .main-header .container > *{min-width:0}
-  .logo-box{min-width:0}
-  .logo-box .logo-text{min-width:0}
-  .search-bar{min-width:0}
-  .search-bar input{min-width:0}
-  .header-actions{min-width:0}
-  .hero-content{min-width:0}
-  .products-toolbar{min-width:0}
-  .filter-chips{min-width:0}
-  .products-grid{width:100%;min-width:0}
-  .product-card{min-width:0}
-  .product-body{min-width:0}
-  .service-card,.contact-card,.about-card,.qr-section{min-width:0}
-}
-@media(max-width:768px){
-  .container{width:100%;min-width:0}
-  .top-bar .container{min-width:0}
-  .top-bar-left{min-width:0}
-  .top-bar-left span{min-width:0}
-  .main-header .container{min-width:0}
-  .logo-box .logo-text strong{white-space:nowrap}
-  .header-actions{justify-content:flex-end}
-  .header-action{min-width:0}
-  .search-bar{width:100%;min-width:0}
-  .search-bar input{width:100%;min-width:0}
-  .hero-content,.hero p,.section-head,.section-head p{min-width:0}
-  .hero h1{overflow-wrap:anywhere}
-  .hero p,.section-head p,.about-content p,.about-card p,.service-card p,.contact-card p,.qr-text-side p,.footer-brand p,.footer-contact-item span{overflow-wrap:anywhere}
-  .products-toolbar{align-items:stretch}
-  .filter-chips{width:100%;flex:1 1 100%;min-width:0}
-  .results-info{width:100%;text-align:right}
-  .product-card{min-width:0;overflow:hidden}
-  .product-body{min-width:0}
-  .product-name,.product-desc,.product-brand,.product-category-tag{overflow-wrap:anywhere}
-  .product-actions{min-width:0}
-  .btn-add{min-width:0}
-  .about-features{min-width:0}
-  .feature-item{min-width:0}
-  .feature-item > div:last-child{min-width:0}
-  .services-grid,.contact-grid,.footer-grid{min-width:0}
-  .service-card,.contact-card,.footer-col,.footer-brand{min-width:0}
-  .qr-card-inner{min-width:0}
-  .qr-text-side{min-width:0}
-  .cart-drawer{width:100vw;max-width:100vw}
-  .cart-header,.cart-items,.cart-footer{min-width:0}
-  .cart-item{min-width:0}
-  .cart-item-info{min-width:0}
-  .cart-item-name{overflow-wrap:anywhere}
-  .cart-footer{padding-left:18px;padding-right:18px}
-  .modal-content{min-width:0}
-  .modal-qr-large{max-width:100%;height:auto;aspect-ratio:1/1}
-}
-@media(max-width:480px){
-  .main-header .container{grid-template-columns:auto auto 1fr auto;gap:7px}
-  .logo-box{gap:8px}
-  .logo-box img{width:40px;height:40px}
-  .logo-box .logo-text strong{font-size:.92rem}
-  .header-actions{gap:4px}
-  .header-action{padding:6px}
-  .header-action i{font-size:1.05rem}
-  .search-bar input{padding-left:38px;padding-right:88px}
-  .search-bar .search-btn{padding:7px 14px}
-  .products-toolbar{gap:10px;margin-bottom:20px}
-  .filter-chips{padding:2px;gap:6px}
-  .chip{padding:8px 14px;font-size:.8rem}
-  .results-info{text-align:left;font-size:.8rem}
-  .products-grid{gap:14px}
-  .product-image{height:190px}
-  .product-body{padding:14px}
-  .product-name{font-size:.9rem}
-  .product-price{font-size:1.15rem}
-  .product-actions{gap:6px}
-  .btn-add{font-size:.76rem}
-  .about-features{grid-template-columns:1fr}
-  .qr-section{padding-left:18px;padding-right:18px}
-  .qr-card-inner{gap:20px}
-  .qr-image-box{max-width:100%;padding:14px}
-  .qr-image-box img{width:min(170px,65vw);height:auto;aspect-ratio:1/1}
-  .cart-item{grid-template-columns:58px minmax(0,1fr) auto;gap:10px;padding:12px}
-  .cart-item-img{width:58px;height:58px}
-  .cart-item-controls{gap:6px}
-  .cart-remove{font-size:.7rem}
-}
-
-</style>
-</head>
-<body>
-
-<div class="top-bar">
-  <div class="container">
-    <div class="top-bar-left">
-      <span><i class="fas fa-truck-fast"></i> Entrega rápida em Arapongas e região</span>
-      <span><i class="fas fa-clock"></i> Seg a sex — 07:30 às 10:00 e 14:00 às 22:00 • Sáb — 15:00 às 18:00 • Dom e feriados — 09:00 às 13:00</span>
-      <span><i class="fas fa-shield-heart"></i> Farmácia com atendimento humanizado</span>
-    </div>
-    <div class="top-bar-right"><a href="tel:+5543996496683"><i class="fas fa-phone"></i> (43) 99649-6683</a></div>
-  </div>
-</div>
-
-<header class="site-header">
-  <div class="main-header">
-    <div class="container">
-      <a href="#" class="logo-box">
-        <img src="logo farmacia.jpeg" alt="Logo Multi Farmacêutica">
-        <span class="logo-text"><strong>Multi Farmacêutica</strong><span>Arapongas • PR</span></span>
-      </a>
-      <form class="search-bar" onsubmit="return false;">
-        <i class="fas fa-magnifying-glass"></i>
-        <input type="text" id="searchInput" placeholder="O que você procura hoje? Ex: dipirona, protetor solar, fralda...">
-        <button type="submit" class="search-btn" id="searchBtn">Buscar</button>
-      </form>
-      <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
-      <div class="header-actions">
-        <a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="header-action" aria-label="WhatsApp">
-          <i class="fab fa-whatsapp" style="color:#22C55E"></i><span>WhatsApp</span>
-        </a>
-        <button class="header-action cart-btn" id="openCartBtn" aria-label="Carrinho">
-          <i class="fas fa-shopping-bag"></i><span>Carrinho</span>
-          <span class="cart-count" id="cartCount">0</span>
-        </button>
-      </div>
-    </div>
-  </div>
-</header>
-
-<section class="hero" id="inicio">
-  <div class="container hero-inner">
-    <div class="hero-content">
-      <span class="hero-tag"><i class="fas fa-star"></i> Sua farmácia de confiança em Arapongas</span>
-      <h1>Sua saúde merece <span class="highlight">cuidado especializado</span></h1>
-      <p>Medicamentos, dermocosméticos, vitaminas e cuidados pessoais com atendimento humanizado e as melhores marcas do mercado. Consulte a disponibilidade pelo WhatsApp.</p>
-      <div class="hero-buttons">
-        <a href="#produtos" class="btn btn-primary"><i class="fas fa-shopping-bag"></i> Ver Produtos</a>
-        <a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="btn btn-outline"><i class="fab fa-whatsapp"></i> Falar com Farmacêutico</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <div class="hero-cards">
-        <div class="hero-mini"><i class="fas fa-truck-fast"></i><strong>Entrega Rápida</strong><span>Em Arapongas e região</span></div>
-        <div class="hero-mini"><i class="fas fa-user-md"></i><strong>Atendimento</strong><span>Profissionais qualificados</span></div>
-        <div class="hero-mini"><i class="fas fa-shield-heart"></i><strong>Confiança</strong><span>Produtos originais</span></div>
-        <div class="hero-mini"><i class="fas fa-credit-card"></i><strong>Pagamento</strong><span>Diversas formas</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="features-bar">
-  <div class="container">
-    <div class="feature"><i class="fas fa-prescription-bottle-medical"></i><div><strong>Medicamentos e Dermocosméticos</strong><span>Amplo estoque e marcas renomadas</span></div></div>
-    <div class="feature"><i class="fas fa-comments"></i><div><strong>Consultoria via WhatsApp</strong><span>Tire dúvidas e consulte disponibilidade</span></div></div>
-    <div class="feature"><i class="fas fa-award"></i><div><strong>Produtos Originais</strong><span>Procedência garantida</span></div></div>
-    <div class="feature"><i class="fas fa-map-location-dot"></i><div><strong>Loja Física</strong><span>Rua Tangará, 1060 — Arapongas</span></div></div>
-  </div>
-</div>
-
-<section id="produtos">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Nossa Vitrine</span>
-      <h2>Produtos em Destaque</h2>
-      <p>Selecione os produtos desejados, adicione ao carrinho e finalize enviando a lista direto para o nosso WhatsApp.</p>
-    </div>
-    <div class="products-toolbar">
-      <div class="filter-chips" id="filterChips">
-        <button class="chip active" data-category="todos"><i class="fas fa-border-all"></i> Todos</button>
-        <button class="chip" data-category="medicamentos"><i class="fas fa-pills"></i> Medicamentos</button>
-        <button class="chip" data-category="vitaminas"><i class="fas fa-capsules"></i> Vitaminas</button>
-        <button class="chip" data-category="dermocosmeticos"><i class="fas fa-spa"></i> Dermocosméticos</button>
-        <button class="chip" data-category="higiene"><i class="fas fa-pump-soap"></i> Higiene</button>
-        <button class="chip" data-category="beleza"><i class="fas fa-wand-magic-sparkles"></i> Beleza</button>
-        <button class="chip" data-category="cuidados"><i class="fas fa-hand-holding-heart"></i> Cuidados Pessoais</button>
-        <button class="chip" data-category="infantil"><i class="fas fa-baby"></i> Infantil</button>
-        <button class="chip" data-category="primeiros-socorros"><i class="fas fa-kit-medical"></i> Primeiros Socorros</button>
-      </div>
-      <span class="results-info" id="resultsInfo">Carregando...</span>
-    </div>
-    <div class="products-grid" id="productsGrid"></div>
-  </div>
-</section>
-
-<section id="sobre" class="about-section">
-  <div class="container about-grid">
-    <div class="about-content">
-      <span class="eyebrow" style="background:var(--ice);color:var(--deep-blue);display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 16px;border-radius:50px;margin-bottom:14px">Sobre Nós</span>
-      <h2>Muito mais que uma farmácia, um <span class="accent">espaço de cuidado</span>.</h2>
-      <p>Na Multi Farmacêutica, unimos tecnologia, sofisticação e o mais puro atendimento humanizado. Nosso ambiente foi desenhado para proporcionar tranquilidade, enquanto nossa equipe foca no que realmente importa: a sua saúde e bem-estar.</p>
-      <div class="about-features">
-        <div class="feature-item"><div class="feature-item-icon"><i class="fas fa-shield-heart"></i></div><div><strong>Confiança e Ética</strong><span>Atendimento transparente</span></div></div>
-        <div class="feature-item"><div class="feature-item-icon"><i class="fas fa-user-md"></i></div><div><strong>Profissionais Qualificados</strong><span>Equipe especializada</span></div></div>
-        <div class="feature-item"><div class="feature-item-icon"><i class="fas fa-box-open"></i></div><div><strong>Amplo Estoque</strong><span>As melhores marcas</span></div></div>
-        <div class="feature-item"><div class="feature-item-icon"><i class="fas fa-leaf"></i></div><div><strong>Saúde Integrativa</strong><span>Cuidado completo</span></div></div>
-      </div>
-    </div>
-    <div class="about-cards">
-      <div class="about-card"><i class="fas fa-bullseye"></i><h3>Nossa Missão</h3><p>Transformar a experiência farmacêutica através de um modelo premium de atendimento, garantindo acesso à saúde com excelência, rapidez e acolhimento.</p></div>
-      <div class="about-card green"><i class="fas fa-eye"></i><h3>Nossa Visão</h3><p>Ser referência absoluta na região de Arapongas, não apenas pela estrutura moderna, mas pelo impacto positivo na qualidade de vida dos nossos clientes.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Especialidades</span>
-      <h2>Nossos Serviços</h2>
-      <p>Cuidado completo, pensado para você em cada detalhe.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card"><div class="service-icon"><i class="fas fa-pills"></i></div><h3>Medicamentos</h3><p>Trabalhamos com os melhores laboratórios, garantindo procedência, diversidade e as melhores condições para o seu tratamento.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-stethoscope"></i></div><h3>Atendimento Farmacêutico</h3><p>Orientação especializada, aferição de pressão, controle glicêmico e acompanhamento próximo para sua segurança.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-spa"></i></div><h3>Saúde e Bem-estar</h3><p>Uma linha completa de dermocosméticos, vitaminas e suplementos das marcas mais renomadas do mercado.</p></div>
-      <div class="service-card"><div class="service-icon"><i class="fas fa-hand-holding-heart"></i></div><h3>Atendimento Personalizado</h3><p>Cada cliente é único. Oferecemos um atendimento focado na sua necessidade específica, com empatia e respeito.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="qrcode">
-  <div class="container">
-    <div class="qr-section">
-      <div class="qr-content">
-        <span class="eyebrow">Canal Oficial</span>
-        <h2>Acesse nosso Grupo de Ofertas</h2>
-        <p>Participe do grupo oficial da Multi Farmacêutica e receba descontos exclusivos, novidades e promoções direto no seu WhatsApp.</p>
-        <div class="qr-card-inner">
-          <div class="qr-image-box" id="openQrModal" title="Clique para ampliar">
-            <img src="qr code multi.jpeg" alt="QR Code Grupo de Ofertas Multi Farmacêutica">
-          </div>
-          <div class="qr-text-side">
-            <h3>Grupo de Ofertas Multi Farmacêutica</h3>
-            <p>Escaneie o QR Code com a câmera do celular ou entre diretamente pelo botão abaixo.</p>
-            <a href="https://chat.whatsapp.com/K2frZekK3xCEmkpe76E1R2?s=qt&p=a&ilr=4" target="_blank" class="btn-whatsapp"><i class="fab fa-whatsapp"></i> Entrar no Grupo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contato">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Fale Conosco</span>
-      <h2>Conecte-se com a Multi</h2>
-      <p>Estamos sempre prontos para atender você com a máxima excelência.</p>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-card"><div class="contact-icon-wrap c-wpp"><i class="fab fa-whatsapp"></i></div><h3>WhatsApp</h3><p>Atendimento rápido e direto. Tire dúvidas e faça pedidos.</p><a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="btn-contact"><i class="fab fa-whatsapp"></i> Enviar Mensagem</a></div>
-      <div class="contact-card"><div class="contact-icon-wrap c-fb"><i class="fab fa-facebook-f"></i></div><h3>Facebook</h3><p>Acompanhe nossas novidades, dicas de saúde e ofertas.</p><a href="https://www.facebook.com/multifarmaceutica" target="_blank" class="btn-contact"><i class="fab fa-facebook-f"></i> Curtir Página</a></div>
-      <div class="contact-card"><div class="contact-icon-wrap c-ig"><i class="fab fa-instagram"></i></div><h3>Instagram</h3><p>Siga nosso dia a dia e acesse conteúdos exclusivos.</p><a href="https://www.instagram.com/multifarmaceutica" target="_blank" class="btn-contact"><i class="fab fa-instagram"></i> Seguir Perfil</a></div>
-      <div class="contact-card"><div class="contact-icon-wrap c-map"><i class="fas fa-map-marker-alt"></i></div><h3>Localização</h3><p>Rua Tangará, 1060<br>Jardim Petrópolis, Arapongas - PR</p><a href="https://www.google.com/maps/place/R.+Tangar%C3%A1,+1060+-+Jardim+Petr%C3%B3polis,+Arapongas+-+PR,+86709-045/@-23.4057,-51.459,17z" target="_blank" class="btn-contact"><i class="fas fa-route"></i> Como Chegar</a></div>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo-box"><img src="logo farmacia.jpeg" alt="Logo Multi Farmacêutica"><span class="logo-text"><strong>Multi Farmacêutica</strong><span>Arapongas • PR</span></span></div>
-        <p>Sua saúde merece atendimento especializado, confiança e dedicação. Conheça o verdadeiro conceito de cuidado humanizado.</p>
-        <div class="footer-social-row">
-          <a href="https://www.instagram.com/multifarmaceutica" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.facebook.com/multifarmaceutica" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Navegação</h4>
-        <ul>
-          <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Início</a></li>
-          <li><a href="#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
-          <li><a href="#servicos"><i class="fas fa-chevron-right"></i> Serviços</a></li>
-          <li><a href="#produtos"><i class="fas fa-chevron-right"></i> Produtos</a></li>
-          <li><a href="#qrcode"><i class="fas fa-chevron-right"></i> Grupo de Ofertas</a></li>
-          <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Categorias</h4>
-        <ul>
-          <li><a href="#produtos" class="footer-cat-link" data-cat="medicamentos"><i class="fas fa-chevron-right"></i> Medicamentos</a></li>
-          <li><a href="#produtos" class="footer-cat-link" data-cat="vitaminas"><i class="fas fa-chevron-right"></i> Vitaminas</a></li>
-          <li><a href="#produtos" class="footer-cat-link" data-cat="dermocosmeticos"><i class="fas fa-chevron-right"></i> Dermocosméticos</a></li>
-          <li><a href="#produtos" class="footer-cat-link" data-cat="higiene"><i class="fas fa-chevron-right"></i> Higiene</a></li>
-          <li><a href="#produtos" class="footer-cat-link" data-cat="infantil"><i class="fas fa-chevron-right"></i> Infantil</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <div class="footer-contact-item"><i class="fas fa-map-marker-alt"></i><span>Rua Tangará, 1060 — Jardim Petrópolis<br>Arapongas - PR, 86709-045</span></div>
-        <div class="footer-contact-item"><i class="fas fa-phone"></i><span>(43) 99649-6683</span></div>
-        <div class="footer-contact-item"><i class="fas fa-clock"></i><span>Seg a sex — 07:30 às 10:00 e 14:00 às 22:00 • Sáb — 15:00 às 18:00 • Dom e feriados — 09:00 às 13:00</span></div>
-      </div>
-    </div>
-    <div class="footer-bottom"><p>&copy; 2026 <strong>Multi Farmacêutica</strong> — CNPJ 61.621.883/0001-41 — Todos os direitos reservados.</p></div>
-  </div>
-</footer>
-
-<a href="https://api.whatsapp.com/send/?phone=5543996496683&text&type=phone_number&app_absent=0" target="_blank" class="float-wpp" aria-label="Falar no WhatsApp"><i class="fab fa-whatsapp"></i></a>
-
-<div class="cart-overlay" id="cartOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
-  <div class="cart-header">
-    <h3><i class="fas fa-shopping-bag"></i> Meu Carrinho</h3>
-    <button class="cart-close" id="closeCartBtn" aria-label="Fechar"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="cart-items" id="cartItems"></div>
-  <div class="cart-footer" id="cartFooter" style="display:none">
-    <div class="cart-total"><span>Total estimado:</span><span id="cartTotal">R$ 0,00</span></div>
-    <p class="cart-note">Os valores são estimativos. A confirmação final será feita pelo WhatsApp.</p>
-    <button class="btn-checkout" id="checkoutBtn"><i class="fab fa-whatsapp"></i> Finalizar pelo WhatsApp</button>
-  </div>
-</aside>
-
-<div class="modal-overlay" id="qrModal" role="dialog" aria-modal="true">
-  <div class="modal-content">
-    <button class="modal-close" id="closeQrModal" aria-label="Fechar"><i class="fas fa-times"></i></button>
-    <h3>Grupo de Ofertas Multi</h3>
-    <div class="modal-qr-large"><img src="qr code multi.jpeg" alt="QR Code Ampliado"></div>
-    <p style="color:var(--text-soft);font-size:.9rem;margin-bottom:18px">Aponte a câmera para escanear ou clique abaixo:</p>
-    <a href="https://chat.whatsapp.com/K2frZekK3xCEmkpe76E1R2?s=qt&p=a&ilr=4" target="_blank" class="btn-whatsapp" style="font-size:.9rem;padding:12px 24px"><i class="fab fa-whatsapp"></i> Entrar Direto pelo Link</a>
-  </div>
-</div>
-
-<div class="toast" id="toast">
-  <i class="fas fa-circle-check"></i>
-  <span id="toastMessage">Produto adicionado ao carrinho</span>
-</div>
-
-<script>
-/* ========== CONFIGURAÇÕES ========== */
-const WHATSAPP_NUMBER = '5543996496683';
-const CART_STORAGE_KEY = 'multiFarmaCart_v1';
-const TOAST_DURATION = 3000;
-
-/* ========== BASE DE PRODUTOS ========== */
-const products = [
-  /* --- MEDICAMENTOS --- */
-  {id:1,name:"Dipirona Monoidratada 500mg",brand:"Medley",category:"medicamentos",price:8.90,promoPrice:null,description:"Analgésico e antitérmico indicado para alívio de dores e febre.",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwx5on6siUh5VsRNF_HqV4W_p7GSSdkhnoT9M55aSPGEsIrge6TuFgeQE&s=10",badge:null},
-  {id:2,name:"Paracetamol 750mg",brand:"Medley",category:"medicamentos",price:12.50,promoPrice:null,description:"Alívio rápido de dores de cabeça, dores no corpo e estados febris.",image:"https://paguemenos.vtexassets.com/arquivos/ids/641086/paracetamol-750mg-com-20-comprimidos-generico-neo-quimica-principal.jpg?v=638008025296600000",badge:null},
-  {id:3,name:"Sonrisal Efervescente 2 comprimidos",brand:"Sonrisal",category:"medicamentos",price:5.90,promoPrice:null,description:"Alívio efervescente de dores de cabeça e mal-estar.",image:"https://farmaciaindiana.vtexassets.com/arquivos/ids/299496-800-1067?v=638385874565600000&width=800&height=1067&aspect=true",badge:null},
-  {id:4,name:"Ibuprofeno 400mg 20 comprimidos",brand:"Medley",category:"medicamentos",price:14.90,promoPrice:12.75,description:"Anti-inflamatório não esteroidal para dores e inflamações.",image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnRCzeOQhYrpVZ3445d5U4FobUqdKn85WzkFY7nfjCSyj4jSmwFkDRQbWX&s=10",badge:null},
-  {id:5,name:"Loratadina 10mg 12 comprimidos",brand:"Medley",category:"medicamentos",price:11.50,promoPrice:null,description:"Antialérgico para alívio de rinite, urticária e coceira.",image:"https://www.farmaciamix.com.br/imagens-complete/800x800/loratadina-10mg-com-12-comprimidos-24adcfd3be.jpg",badge:null},
-  {id:6,name:"Omeprazol 20mg 28 cápsulas",brand:"Medley",category:"medicamentos",price:18.90,promoPrice:15.75,description:"Protetor gástrico para tratamento de azia e refluxo.",image:"",badge:"promo"},
-
-  /* --- VITAMINAS E SUPLEMENTOS --- */
-  {id:10,name:"Vitamina C 650mg 60 cápsulas",brand:"New Four",category:"vitaminas",price:28.50,promoPrice:null,description:"Antioxidante que auxilia na imunidade e saúde geral.",image:"https://emporio4estrelas.vtexassets.com/arquivos/ids/230307/Vitamina-C-60-Capsulas-New-Four.jpg?v=638574272563870000",badge:null},
-  {id:11,name:"Ômega 3 120 cápsulas",brand:"Vidora",category:"vitaminas",price:44.90,promoPrice:null,description:"Suplemento de óleo de peixe rico em EPA e DHA.",image:"https://tse4.mm.bing.net/th/id/OIP.AcrYzCcn-_OwKC7QcBe0mAHaM6?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",badge:null},
-  {id:12,name:"Creatina 500mg 180 cápsulas",brand:"New Four",category:"vitaminas",price:76.00,promoPrice:null,description:"Auxilia no desempenho esportivo e força muscular.",image:"https://http2.mlstatic.com/D_NQ_NP_857125-MLB78068768187_072024-O.webp",badge:null},
-  {id:13,name:"Multivitamínico A-Z 60 cápsulas",brand:"New Four",category:"vitaminas",price:34.90,promoPrice:null,description:"Combinação completa de vitaminas e minerais essenciais.",image:"https://m.media-amazon.com/images/I/715aGAksrrL._AC_SX522_.jpg",badge:"new"},
-  {id:14,name:"Whey Protein Gourmet 900g",brand:"Sunfit",category:"vitaminas",price:69.90,promoPrice:null,description:"Proteína de alto valor biológico para recuperação muscular.",image:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-m66v1u01pnzma5",badge:null},
-  {id:15,name:"Vitamina D3 90 cápsulas",brand:"Bioceutica",category:"vitaminas",price:23.90,promoPrice:null,description:"Essencial para saúde óssea, imunidade e bem-estar.",image:"https://tse4.mm.bing.net/th/id/OIP.dxslX4q2RiaGV9s1PirqBwAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",badge:null},
-  {id:16,name:"Zinco Quelato 550mg 60 cápsulas",brand:"New Four",category:"vitaminas",price:22.50,promoPrice:null,description:"Mineral importante para imunidade e saúde da pele.",image:"https://emporio4estrelas.vtexassets.com/arquivos/ids/230311/Zinco-Quelato-60-Capsulas-New-Four.jpg?v=638574273510070000",badge:null},
-  {id:17,name:"Vitamina E 400UI 60 cápsulas",brand:"New Four",category:"vitaminas",price:33.75,promoPrice:null,description:"Antioxidante que auxilia na proteção celular.",image:"https://m.media-amazon.com/images/I/615E24J4ggL._AC_SX522_.jpg",badge:null},
-
-  /* --- DERMOCOSMÉTICOS --- */
-  {id:18,name:"Protetor Solar Nivea FPS 50 Facial 50ml",brand:"Nivea",category:"dermocosmeticos",price:79.90,promoPrice:71.75,description:"Proteção facial UVA/UVB para pele mista a oleosa.",image:"https://img.nivea.com/-/media/miscellaneous/media-center-items/d/b/5/08dcc297d5d74793ba6ddb6eca06bf8b-web_1010x1180_transparent_png.png",badge:"promo"},
-  {id:19,name:"Protetor Solar Neutrogena FPS 50 200ml",brand:"Neutrogena",category:"dermocosmeticos",price:84.90,promoPrice:null,description:"Proteção solar de alta performance com toque seco.",image:"https://tse4.mm.bing.net/th/id/OIP.H-tSYuUfyb6Wvi0_Q_QukAHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",badge:null},
-  {id:20,name:"Creme Hidratante Nivea 56g",brand:"Nivea",category:"dermocosmeticos",price:33.90,promoPrice:29.75,description:"Hidratação intensa para o rosto e corpo.",image:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-mbyhy6s81nx584",badge:"promo"},
-  {id:21,name:"Protetor Labial Nivea",brand:"Nivea",category:"dermocosmeticos",price:21.90,promoPrice:null,description:"Hidratação e proteção para os lábios.",image:"https://m.media-amazon.com/images/I/71yv3Wsys-L._AC_SL1500_.jpg",badge:null},
-  {id:22,name:"Creme para Mãos Nivea 75g",brand:"Nivea",category:"dermocosmeticos",price:19.90,promoPrice:null,description:"Hidratação prolongada para mãos ressecadas.",image:"https://m.media-amazon.com/images/I/51wUw2UlZdL._AC_SL1500_.jpg",badge:null},
-
-  /* --- HIGIENE --- */
-  {id:23,name:"Shampoo Clear Men 200ml",brand:"Clear",category:"higiene",price:25.90,promoPrice:22.75,description:"Limpeza profunda com controle de oleosidade.",image:"https://assets.unileversolutions.com/v1/126067686.png",badge:"promo"},
-  {id:24,name:"Sabonete Albany 85g",brand:"Albany",category:"higiene",price:3.90,promoPrice:null,description:"Sabonete em barra com ação hidratante.",image:"https://tse2.mm.bing.net/th/id/OIP.yt94fQNgRaRbzNbqaTvNEwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",badge:null},
-  {id:25,name:"Creme Dental Colgate Total 90g",brand:"Colgate",category:"higiene",price:9.75,promoPrice:null,description:"Proteção completa para dentes e gengivas.",image:"https://supernossoio.vtexassets.com/arquivos/ids/489265/96466_0.png?v=638676323198630000",badge:null},
-  {id:26,name:"Fio Dental Colgate 50m",brand:"Colgate",category:"higiene",price:17.75,promoPrice:null,description:"Limpeza eficaz entre os dentes e gengivas.",image:"https://tse1.mm.bing.net/th/id/OIP.LZQymmHZdu1isTKpnFPcmwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",badge:null},
-  {id:27,name:"Desodorante Aerosol Bozzano 150ml",brand:"Bozzano",category:"higiene",price:16.90,promoPrice:15.75,description:"Proteção prolongada contra odor e suor.",image:"https://down-br.img.susercontent.com/file/br-11134207-7r98q-lm3zh9uyvqwm2a",badge:"promo"},
-  {id:28,name:"Condicionador Elseve 200ml",brand:"Elseve",category:"higiene",price:29.90,promoPrice:24.75,description:"Nutrição intensa para cabelos macios e brilhantes.",image:"https://paguemenos.vtexassets.com/arquivos/ids/996837/7908615055145_1.png.png?v=638779180051530000",badge:"promo"},
-  {id:29,name:"Shampoo Pantene 200ml",brand:"Pantene",category:"higiene",price:17.50,promoPrice:15.75,description:"Limpeza suave com restauração da fibra capilar.",image:"https://www.anikashop.com.ar/product_images/m/284/1__34089_zoom.jpg",badge:null},
-  {id:31,name:"Periogard Solução Bucal 250ml S/Álcool",brand:"Colgate",category:"higiene",price:39.90,promoPrice:34.75,description:"Antisséptico bucal clínico para saúde gengival.",image:"https://alexfarma.vteximg.com.br/arquivos/ids/155982-800-800/PERIOGARD-SOL.BUCAL-S-ALCOOL-250ML.png?v=637840703225570000",badge:"promo"},
-  {id:32,name:"Periotrat 250ml Menta Forte S/Álcool",brand:"Hertz",category:"higiene",price:29.90,promoPrice:17.50,description:"Antisséptico bucal para tratamento gengival.",image:"https://m.media-amazon.com/images/I/51eqVA5S1zS._AC_SX425_.jpg",badge:"promo"},
-  {id:33,name:"Enxaguante Bucal Colgate Plax 250ml",brand:"Colgate",category:"higiene",price:15.50,promoPrice:13.75,description:"Proteção antibacteriana para o hálito.",image:"https://tse1.mm.bing.net/th/id/OIP.gkaTNcdO1SN4fhVcPt8j-wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",badge:"promo"},
-  {id:34,name:"Espuma de Barbear Bozzano 200ml",brand:"Bozzano",category:"higiene",price:26.90,promoPrice:23.75,description:"Espuma de barbear para pele sensível.",image:"https://product-data.raiadrogasil.io/images/3483419.webp?width=450&height=450&quality=85&type=resize",badge:"promo"},
-  {id:35,name:"Espuma de Barbear Gillette 179ml",brand:"Gillette",category:"higiene",price:32.75,promoPrice:29.75,description:"Espuma de barbear para pele sensível.",image:"https://down-br.img.susercontent.com/file/br-11134207-7r98o-lyclhb3i875127",badge:"promo"},
-
-  /* --- BELEZA --- */
-  {id:40,name:"Esmalte Risqué 8ml",brand:"Risqué",category:"beleza",price:7.90,promoPrice:6.75,description:"Cores vibrantes e longa duração.",image:"https://down-br.img.susercontent.com/file/6fc07b7b76667ae1f140533aa913cba5",badge:"promo"},
-  {id:41,name:"Creme para Pentear Monange 300ml",brand:"Monange",category:"beleza",price:14.90,promoPrice:null,description:"Desembaraça e define os fios com maciez.",image:"https://down-br.img.susercontent.com/file/br-11134201-23030-nlbufawbiaovc4",badge:null},
-  {id:42,name:"Máscara Capilar Elseve 300ml",brand:"Elseve",category:"beleza",price:34.90,promoPrice:29.90,description:"Tratamento intensivo para cabelos danificados.",image:"https://res.cloudinary.com/beleza-na-web/image/upload/w_1500,f_auto,fl_progressive,q_auto:eco,w_1800,c_limit/e_trim/v1/imagens/product/92260/7a672ce5-f739-4102-bf34-8434b397539c-92260-elseve-quera-liso-liso-com-escova-creme-de-tratamento-300g.png",badge:"promo"},
-  {id:43,name:"Coloração Creme Keraton 50g",brand:"Kress",category:"beleza",price:29.75,promoPrice:null,description:"Coloração em creme para cabelos.",image:"https://cdn.awsli.com.br/2500x2500/223/223578/produto/350759283/colora-o-creme-keraton-selfie-my-crush-rosa_pink-39f5vzzbfq.jpg",badge:null},
-
-  /* --- CUIDADOS PESSOAIS --- */
-  {id:50,name:"Absorvente Carefree 40 unidades",brand:"Carefree",category:"cuidados",price:21.50,promoPrice:null,description:"Proteção diária e conforto durante todo o dia.",image:"https://m.media-amazon.com/images/I/71C1NERwxrL._AC_SL1500_.jpg",badge:null},
-  {id:51,name:"Absorvente Carefree 15 unidades",brand:"Carefree",category:"cuidados",price:11.50,promoPrice:null,description:"Proteção diária em embalagem compacta.",image:"https://m.media-amazon.com/images/I/71Kd03OX1FL._AC_SL1500_.jpg",badge:null},
-  {id:52,name:"Absorvente Intimus 32 unidades",brand:"Intimus",category:"cuidados",price:24.90,promoPrice:22.75,description:"Cobertura extra suave com alta absorção.",image:"https://m.media-amazon.com/images/I/61-TAD3nkML._AC_SL1000_.jpg",badge:"promo"},
-  {id:53,name:"Absorvente Intimus 16 unidades",brand:"Intimus",category:"cuidados",price:13.90,promoPrice:11.75,description:"Proteção com cobertura extra suave.",image:"https://cdn1.staticpanvel.com.br/produtos/15/631680-15.jpg?ims=424x",badge:"promo"},
-  {id:54,name:"Absorvente O.B. 10 unidades Médio",brand:"O.B.",category:"cuidados",price:15.90,promoPrice:13.75,description:"Proteção interna com conforto e discrição.",image:"https://destro.fbitsstatic.net/img/p/absorvente-ob-medio-10-unidades-72449/258985.jpg?w=1000&h=1000&v=202501231555&qs=ignore",badge:"promo"},
-  {id:55,name:"Absorvente O.B. 10 unidades Super",brand:"O.B.",category:"cuidados",price:15.90,promoPrice:13.75,description:"Proteção interna super absorvente.",image:"https://m.media-amazon.com/images/I/51re+2Y9-gL._AC_SL1000_.jpg",badge:"promo"},
-  {id:56,name:"Absorvente Geriamax 20 unidades Pós-Parto",brand:"Ever Green",category:"cuidados",price:23.90,promoPrice:null,description:"Absorvente pós-parto com alta absorção.",image:"https://m.media-amazon.com/images/I/51RwqHGebIL._AC_SL1000_.jpg",badge:null},
-  {id:57,name:"Cotonete Johnson's 150 unidades",brand:"Johnson's",category:"cuidados",price:18.90,promoPrice:15.75,description:"Hastes flexíveis para higiene delicada.",image:"https://bompreco.vtexassets.com/arquivos/ids/155739/HastesFlexiveisJohnsonJohnsonCotonetes150UnidadesEmbalagemEconomica.jpg?v=637460618559070000",badge:null},
-  {id:58,name:"Preservativo Jontex Lubrificado",brand:"Jontex",category:"cuidados",price:6.75,promoPrice:null,description:"Preservativo masculino com lubrificação.",image:"https://tse1.mm.bing.net/th/id/OIP.jt5I5-LvHZ9gnnF1NqSy_gHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",badge:null},
-  {id:59,name:"Preservativo Olla 3un Morango",brand:"Olla",category:"cuidados",price:8.90,promoPrice:null,description:"Preservativo com aroma e sabor morango.",image:"https://th.bing.com/th/id/R.7362d64f0e8c5073b0ba35e22bdf48f6?rik=OX1U2RTMhdxSPg&riu=http%3a%2f%2fpill.com.br%2fcdn%2fshop%2ffiles%2freckitt-benckiser-camisinha-olla-sabor-morango-com-3-unidades-1131982077.jpg%3fv%3d1739937723&ehk=rzkrV251CWrMTebtkIoG7xT%2bjWWPP8QHUsQOZqAJIBo%3d&risl=&pid=ImgRaw&r=0",badge:null},
-  {id:60,name:"Diabet TX 250g + Ureia",brand:"Genomma",category:"cuidados",price:59.90,promoPrice:56.75,description:"Creme para cuidados com os pés de pessoas com diabetes.",image:"https://images.tcdn.com.br/img/img_prod/1037107/creme_hidratante_diabet_tx_plus_10_ureia_250g_112757751_1_0a3c6ad2a9b3ec5055c2ca3844a5b6c2.jpg",badge:"promo"},
-
-  /* --- INFANTIL --- */
-  {id:70,name:"Fralda Isababy Tam. M 70 unidades",brand:"Isababy",category:"infantil",price:54.00,promoPrice:44.90,description:"Fralda descartável com alta absorção e conforto.",image:"https://http2.mlstatic.com/D_NQ_NP_917515-MLU75445640708_042024-O.webp",badge:"promo"},
-  {id:72,name:"Leite Nestogeno 1 800g",brand:"Nestlé",category:"infantil",price:61.90,promoPrice:57.90,description:"Fórmula infantil para lactentes a partir de 0 meses.",image:"https://product-data.raiadrogasil.io/images/16643652.webp",badge:"promo"},
-  {id:73,name:"Mucilon Snacks 35g",brand:"Nestlé",category:"infantil",price:8.90,promoPrice:6.90,description:"Snack infantil sabor laranja e banana.",image:"https://http2.mlstatic.com/D_NQ_NP_2X_799935-MLB87001222979_062025-F-kit-3-lanchinho-mucilon-laranja-e-banana-35g.webp",badge:"promo"},
-  {id:74,name:"Fórmula NAN Supreme Pro 800g",brand:"Nestlé",category:"infantil",price:114.90,promoPrice:104.90,description:"Fórmula infantil premium.",image:"https://www.jnfraldas.com.br/wp-content/uploads/2023/07/Design-sem-nome-2024-10-29T161801.231.png",badge:"promo"},
-
-  /* --- PRIMEIROS SOCORROS --- */
-  {id:80,name:"Soro Fisiológico 0,9% 250ml",brand:"Farmax",category:"primeiros-socorros",price:6.50,promoPrice:null,description:"Solução estéril para limpeza e higienização.",image:"https://cdn.dentalcremer.com.br/produtos/soro-fisiologico-gotejador-sorimax-250ml-farmax-121318.jpg",badge:null},
-  {id:83,name:"Bicarbonato de Sódio 100% Pó 100g",brand:"Farmax",category:"primeiros-socorros",price:7.75,promoPrice:null,description:"Uso interno e externo, antisséptico e digestivo.",image:"https://www.drogariaminasbrasil.com.br/media/catalog/product/cache/74c1057f7991b4edb2bc7bdaa94de933/image/102637845d/bicarbonato-de-sodio-100-po-100g-farmax.jpg",badge:null},
-  {id:84,name:"Permanganato de Potássio 10 comprimidos",brand:"Uniphar",category:"primeiros-socorros",price:4.00,promoPrice:null,description:"Antisséptico para higienização e tratamento tópico.",image:"https://d3lj4yiwot58ix.cloudfront.net/Custom/Content/Products/99/49/9949_permanganato-de-potassio-100mg-uniphar-p2269_m1_638428234864509130.jpg",badge:null},
-  {id:85,name:"Água Boricada 100ml",brand:"Farmax",category:"primeiros-socorros",price:2.75,promoPrice:null,description:"Antisséptico suave para higiene ocular e de pele.",image:"https://images.tcdn.com.br/img/img_prod/637904/agua_boricada_farmax_100_ml_7809_1_a5b058dccdc0d2a2b9ca33fac9f82c98.jpg",badge:null},
-  {id:87,name:"Farmaiodine 100ml",brand:"Farmax",category:"primeiros-socorros",price:12.90,promoPrice:11.75,description:"Solução antisséptica de iodo para uso tópico.",image:"https://bemol.vtexassets.com/arquivos/ids/527477-800-800?v=639045238016600000&width=800&height=800&aspect=true",badge:"promo"},
-  {id:88,name:"Curativo Band-Aid 10 unidades",brand:"Johnson & Johnson",category:"primeiros-socorros",price:8.90,promoPrice:7.75,description:"Curativos adesivos para pequenos ferimentos.",image:"https://cdn1.staticpanvel.com.br/produtos/15/889480-15.jpg?ims=424x",badge:"promo"},
-  {id:89,name:"Curativo Band-Aid 30 unidades",brand:"Johnson & Johnson",category:"primeiros-socorros",price:21.90,promoPrice:19.75,description:"Curativos adesivos em embalagem econômica.",image:"https://m.magazineluiza.com.br/a-static/420x420/curativos-band-aid-variados-sortido-johnson-johnson-30-unidades/farmaciaindiana/151408/5902fdac0155c57b0a433924d37ea4f4.jpeg",badge:"promo"},
-  {id:90,name:"Curativo Cotoneb 10 unidades",brand:"Cottonbaby",category:"primeiros-socorros",price:3.50,promoPrice:2.75,description:"Curativos adesivos para pequenos ferimentos.",image:"https://down-br.img.susercontent.com/file/sg-11134201-7rfhc-m3ux4ttks6u51c",badge:"promo"},
-  {id:91,name:"Curativo Multi Saúde 20 unidades",brand:"Multi Saúde",category:"primeiros-socorros",price:7.90,promoPrice:6.75,description:"Curativos adesivos transparentes.",image:"https://tse3.mm.bing.net/th/id/OIP.QAhqS4ME1QuBfA5R6npOOAAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",badge:"promo"},
-  {id:92,name:"Termômetro Digital Multi Saúde",brand:"Multi Saúde",category:"primeiros-socorros",price:19.75,promoPrice:null,description:"Medição rápida e precisa da temperatura corporal.",image:"https://a-static.mlcdn.com.br/470x352/termometro-clinico-digital-multi-saude-1-un/lizocastore/0000000898/b907dc1bc0573d7855e7559747698b7f.jpeg",badge:null},
-  {id:93,name:"Compressa Anti Febre 4 unidades",brand:"Multi Saúde",category:"primeiros-socorros",price:27.75,promoPrice:null,description:"Compressas de ação refrescante e calmante.",image:"https://m.magazineluiza.com.br/a-static/420x420/compressa-anti-febre-12x5cm-multilaser-4-unidades/farmaciaindiana/177312/65d1f661639d64543b9850f151a0d485.jpeg",badge:null},
-  {id:94,name:"Seringa Nasal 10ml",brand:"Multi Saúde",category:"primeiros-socorros",price:29.90,promoPrice:null,description:"Seringa para higiene nasal de bebês e crianças.",image:"https://images.colombo.com.br/produtos/4629108/4629108_Seringa_para_Lavagem_Nasal_10ml_Adulto_2_Un_Multi_Saude_HC398_13227793_z.jpg",badge:null},
-  {id:95,name:"Esparadrapo Missner 1,2x4,5cm",brand:"Missner",category:"primeiros-socorros",price:5.75,promoPrice:null,description:"Esparadrapo antialérgico para fixação.",image:"https://http2.mlstatic.com/D_NQ_NP_973483-MLB82172755426_022025-O.webp",badge:null},
-  {id:96,name:"Álcool 70% 50ml",brand:"Farmax",category:"primeiros-socorros",price:3.90,promoPrice:null,description:"Antisséptico para higienização das mãos e superfícies em embalagem compacta.",image:"https://uploads.consultaremedios.com.br/product_variation_images/large/adddde71a172be0f36782f659d541f9e24080228.jpg?1586361664",badge:null}
-];
-
-/* ========== UTILITÁRIOS ========== */
-function formatBRL(v){return 'R$ ' + v.toFixed(2).replace('.', ',');}
-function formatBRLParts(v){const [i,d]=v.toFixed(2).split('.');return{int:'R$ '+i+',',cents:d};}
-function categoryLabel(c){
-  const m={'medicamentos':'Medicamentos','vitaminas':'Vitaminas','dermocosmeticos':'Dermocosméticos','higiene':'Higiene','beleza':'Beleza','cuidados':'Cuidados Pessoais','infantil':'Infantil','primeiros-socorros':'Primeiros Socorros'};
-  return m[c]||c;
-}
-function placeholderImage(name){
-  const clean = encodeURIComponent(name.substring(0,40).replace(/\s+/g,' ').trim());
-  return `https://placehold.co/500x500/0057D9/FFFFFF/png?text=${clean}`;
-}
-
-/* ========== RENDERIZAÇÃO ========== */
-const productsGrid = document.getElementById('productsGrid');
-const resultsInfo = document.getElementById('resultsInfo');
-let currentCategory = 'todos';
-let currentSearch = '';
-
-function renderProducts(){
-  let filtered = products.slice();
-  if(currentCategory !== 'todos') filtered = filtered.filter(p => p.category === currentCategory);
-  if(currentSearch.trim() !== ''){
-    const q = currentSearch.toLowerCase().trim();
-    filtered = filtered.filter(p =>
-      p.name.toLowerCase().includes(q) ||
-      p.brand.toLowerCase().includes(q) ||
-      p.category.toLowerCase().includes(q) ||
-      categoryLabel(p.category).toLowerCase().includes(q) ||
-      p.description.toLowerCase().includes(q)
-    );
-  }
-  resultsInfo.textContent = filtered.length === 1 ? '1 produto encontrado' : filtered.length + ' produtos encontrados';
-
-  if(filtered.length === 0){
-    productsGrid.innerHTML = `<div class="no-results"><i class="fas fa-search"></i><h3>Nenhum produto encontrado</h3><p>Tente buscar por outro nome, marca ou categoria.</p></div>`;
-    return;
-  }
-
-  productsGrid.innerHTML = filtered.map(p => {
-    const imgSrc = p.image || placeholderImage(p.name);
-    const hasPromo = p.promoPrice && p.promoPrice < p.price;
-    const displayPrice = hasPromo ? p.promoPrice : p.price;
-    const parts = formatBRLParts(displayPrice);
-    const badgeHTML = p.badge === 'promo' ? '<span class="product-badge promo">OFERTA</span>'
-                    : p.badge === 'new' ? '<span class="product-badge new">NOVIDADE</span>' : '';
-    return `
-      <div class="product-card">
-        ${badgeHTML}
-        <div class="product-image">
-          <img src="${imgSrc}" alt="${p.name}" loading="lazy" onerror="this.onerror=null;this.src='${placeholderImage(p.name)}'">
-        </div>
-        <div class="product-body">
-          <span class="product-category-tag">${categoryLabel(p.category)}</span>
-          <span class="product-brand">${p.brand}</span>
-          <h3 class="product-name">${p.name}</h3>
-          <p class="product-desc">${p.description}</p>
-          <div class="product-price-block">
-            ${hasPromo ? `<div class="product-old-price">De ${formatBRL(p.price)}</div>` : ''}
-            <div class="product-price">
-              <span class="price-int">${parts.int}</span><span class="price-cents">${parts.cents}</span>
-              <span class="label">/un</span>
-            </div>
-          </div>
-          <div class="product-actions">
-            <button class="btn-add" data-id="${p.id}"><i class="fas fa-cart-plus"></i> Comprar</button>
-            <button class="btn-fav" aria-label="Favoritar"><i class="far fa-heart"></i></button>
-          </div>
-        </div>
-      </div>`;
-  }).join('');
-
-}
-
-// One delegated listener for the entire product grid. This remains stable even
-// when renderProducts() replaces the grid contents during search/filter actions.
-productsGrid.addEventListener('click', (e) => {
-  const btn = e.target.closest('.btn-add');
-  if(!btn || !productsGrid.contains(btn)) return;
-  e.preventDefault();
-  e.stopPropagation();
-
-  if(btn.dataset.busy === 'true') return;
-  btn.dataset.busy = 'true';
-
-  const id = Number(btn.dataset.id);
-  addToCart(id, 1);
-  btn.classList.add('added');
-  btn.innerHTML = '<i class="fas fa-check"></i> Adicionado';
-
-  setTimeout(() => {
-    if(!btn.isConnected) return;
-    btn.classList.remove('added');
-    btn.innerHTML = '<i class="fas fa-cart-plus"></i> Comprar';
-    btn.dataset.busy = 'false';
-  }, 1400);
-});
-
-/* ========== FILTROS E BUSCA ========== */
-document.querySelectorAll('#filterChips .chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    document.querySelectorAll('#filterChips .chip').forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    currentCategory = chip.getAttribute('data-category');
-    document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('active'));
-    const navLink = document.querySelector(`.cat-link[data-category="${currentCategory}"]`);
-    if(navLink) navLink.classList.add('active');
-    renderProducts();
-  });
-});
-document.querySelectorAll('.cat-link').forEach(link => {
-  link.addEventListener('click', () => {
-    const cat = link.getAttribute('data-category');
-    if(!cat) return;
-    currentCategory = cat;
-    document.querySelectorAll('.cat-link').forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
-    document.querySelectorAll('#filterChips .chip').forEach(c => c.classList.toggle('active', c.getAttribute('data-category') === cat));
-    renderProducts();
-  });
-});
-document.querySelectorAll('.footer-cat-link').forEach(link => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    filterByCategory(link.getAttribute('data-cat'));
-  });
-});
-function filterByCategory(cat){
-  currentCategory = cat;
-  document.querySelectorAll('.cat-link').forEach(l => l.classList.toggle('active', l.getAttribute('data-category') === cat));
-  document.querySelectorAll('#filterChips .chip').forEach(c => c.classList.toggle('active', c.getAttribute('data-category') === cat));
-  renderProducts();
-  document.getElementById('produtos').scrollIntoView({behavior:'smooth'});
-}
-/* Expõe globalmente para qualquer acesso externo (evita erros de lint) */
-window.filterByCategory = filterByCategory;
-
-document.getElementById('searchInput').addEventListener('input', (e) => {
-  currentSearch = e.target.value;
-  renderProducts();
-});
-document.getElementById('searchBtn').addEventListener('click', () => {
-  document.getElementById('produtos').scrollIntoView({behavior:'smooth'});
-});
-
-/* ========== CARRINHO ========== */
-function normalizeCart(rawCart){
-  if(!Array.isArray(rawCart)) return [];
-  const merged = new Map();
-  rawCart.forEach(item => {
-    const id = Number(item && item.id);
-    const qty = Number(item && item.qty);
-    if(!Number.isInteger(id) || !products.some(p => p.id === id)) return;
-    if(!Number.isFinite(qty) || qty <= 0) return;
-    const safeQty = Math.max(1, Math.floor(qty));
-    merged.set(id, (merged.get(id) || 0) + safeQty);
-  });
-  return Array.from(merged, ([id, qty]) => ({id, qty}));
-}
-
-let cart = loadCart();
-function loadCart(){
-  try {
-    const stored = localStorage.getItem(CART_STORAGE_KEY);
-    const normalized = normalizeCart(stored ? JSON.parse(stored) : []);
-    // Persist the cleaned state so old duplicated/corrupted entries do not return.
-    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(normalized));
-    return normalized;
-  } catch(e){
-    return [];
-  }
-}
-function saveCart(){
-  try { localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(normalizeCart(cart))); }
-  catch(e) {}
-}
-
-function addToCart(productId, qty = 1){
-  const id = Number(productId);
-  const amount = Number(qty);
-  const product = products.find(p => p.id === id);
-  if(!product || !Number.isFinite(amount) || amount <= 0) return;
-
-  // Always normalize before changing the state. This prevents legacy duplicates
-  // from making one click appear as multiple cart rows.
-  cart = normalizeCart(cart);
-  const existing = cart.find(item => item.id === id);
-  if(existing) existing.qty += Math.floor(amount);
-  else cart.push({id, qty: Math.floor(amount)});
-
-  cart = normalizeCart(cart);
-  saveCart();
-  updateCartUI(true);
-  showToast(`${product.name} adicionado ao carrinho`);
-}
-function removeFromCart(productId){
-  cart = cart.filter(item => item.id !== productId);
-  saveCart(); updateCartUI();
-}
-function updateQty(productId, delta){
-  const item = cart.find(i => i.id === productId);
-  if(!item) return;
-  item.qty += delta;
-  if(item.qty <= 0){ removeFromCart(productId); return; }
-  saveCart(); updateCartUI();
-}
-function getCartTotal(){
-  return cart.reduce((sum, item) => {
-    const p = products.find(prod => prod.id === item.id);
-    if(!p) return sum;
-    const price = (p.promoPrice && p.promoPrice < p.price) ? p.promoPrice : p.price;
-    return sum + price * item.qty;
-  }, 0);
-}
-function getCartCount(){ return cart.reduce((sum, item) => sum + item.qty, 0); }
-
-/* Expõe funções usadas nos botões do carrinho */
-window.updateQty = updateQty;
-window.removeFromCart = removeFromCart;
-
-function updateCartUI(pulse){
-  cart = normalizeCart(cart);
-  const countEl = document.getElementById('cartCount');
-  const itemsEl = document.getElementById('cartItems');
-  const footerEl = document.getElementById('cartFooter');
-  const totalEl = document.getElementById('cartTotal');
-  const cartBtn = document.getElementById('openCartBtn');
-
-  const count = getCartCount();
-  countEl.textContent = count;
-  countEl.classList.toggle('visible', count > 0);
-
-  if(pulse && count > 0){
-    cartBtn.classList.add('pulse');
-    setTimeout(() => cartBtn.classList.remove('pulse'), 650);
-  }
-
-  if(cart.length === 0){
-    itemsEl.innerHTML = `<div class="cart-empty"><i class="fas fa-shopping-basket"></i><h4>Seu carrinho está vazio</h4><p>Adicione produtos e finalize seu pedido pelo WhatsApp.</p></div>`;
-    footerEl.style.display = 'none';
-    return;
-  }
-
-  itemsEl.innerHTML = cart.map(item => {
-    const p = products.find(prod => prod.id === item.id);
-    if(!p) return '';
-    const price = (p.promoPrice && p.promoPrice < p.price) ? p.promoPrice : p.price;
-    const imgSrc = p.image || placeholderImage(p.name);
-    return `
-      <div class="cart-item">
-        <div class="cart-item-img"><img src="${imgSrc}" alt="${p.name}" onerror="this.onerror=null;this.src='${placeholderImage(p.name)}'"></div>
-        <div class="cart-item-info">
-          <div class="cart-item-name">${p.name}</div>
-          <div class="cart-item-price">${formatBRL(price)}</div>
-        </div>
-        <div class="cart-item-controls">
-          <div class="qty-control">
-            <button onclick="updateQty(${p.id}, -1)" aria-label="Diminuir"><i class="fas fa-minus"></i></button>
-            <span>${item.qty}</span>
-            <button onclick="updateQty(${p.id}, 1)" aria-label="Aumentar"><i class="fas fa-plus"></i></button>
-          </div>
-          <button class="cart-remove" onclick="removeFromCart(${p.id})"><i class="fas fa-trash-alt"></i> Remover</button>
-        </div>
-      </div>`;
-  }).join('');
-
-  totalEl.textContent = formatBRL(getCartTotal());
-  footerEl.style.display = 'block';
-}
-
-/* ========== DRAWER ========== */
-const cartDrawer = document.getElementById('cartDrawer');
-const cartOverlay = document.getElementById('cartOverlay');
-const openCartBtn = document.getElementById('openCartBtn');
-const closeCartBtn = document.getElementById('closeCartBtn');
-function openCart(){
-  cartDrawer.classList.add('active');
-  cartOverlay.classList.add('active');
-  cartDrawer.setAttribute('aria-hidden','false');
-  document.body.style.overflow = 'hidden';
-}
-function closeCart(){
-  cartDrawer.classList.remove('active');
-  cartOverlay.classList.remove('active');
-  cartDrawer.setAttribute('aria-hidden','true');
-  document.body.style.overflow = '';
-}
-openCartBtn.addEventListener('click', openCart);
-closeCartBtn.addEventListener('click', closeCart);
-cartOverlay.addEventListener('click', closeCart);
-document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeCart(); });
-
-/* ========== CHECKOUT WHATSAPP ========== */
-document.getElementById('checkoutBtn').addEventListener('click', () => {
-  if(cart.length === 0) return;
-  let msg = 'Olá, Multi Farmacêutica! Gostaria de verificar a disponibilidade dos seguintes produtos:\n\n';
-  cart.forEach(item => {
-    const p = products.find(prod => prod.id === item.id);
-    if(p) msg += `• ${p.name} (${p.brand}) — quantidade: ${item.qty}\n`;
-  });
-  msg += '\nPoderiam me informar a disponibilidade, forma de pagamento e a melhor forma de retirada/entrega? Obrigado(a)!';
-  const url = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=${encodeURIComponent(msg)}&type=phone_number&app_absent=0`;
-  window.open(url, '_blank');
-});
-
-/* ========== TOAST (CORRIGIDO — sem flicker, sem prender na tela) ========== */
-let toastTimer = null;
-function showToast(message){
-  const toast = document.getElementById('toast');
-  const messageEl = document.getElementById('toastMessage');
-  if(!toast || !messageEl) return;
-
-  clearTimeout(toastTimer);
-  messageEl.textContent = message;
-  toast.classList.remove('show');
-  void toast.offsetWidth; // reinicia a transição mesmo em cliques consecutivos
-  toast.classList.add('show');
-
-  toastTimer = setTimeout(() => {
-    toast.classList.remove('show');
-  }, TOAST_DURATION);
-}
-
-/* ========== MODAL QR ========== */
-const qrModal = document.getElementById('qrModal');
-const openQrBtn = document.getElementById('openQrModal');
-const closeQrBtn = document.getElementById('closeQrModal');
-openQrBtn.addEventListener('click', () => { qrModal.classList.add('active'); document.body.style.overflow = 'hidden'; });
-closeQrBtn.addEventListener('click', () => { qrModal.classList.remove('active'); document.body.style.overflow = ''; });
-qrModal.addEventListener('click', (e) => { if(e.target === qrModal){ qrModal.classList.remove('active'); document.body.style.overflow = ''; } });
-
-/* ========== MOBILE ========== */
-const mobileToggle = document.getElementById('mobileToggle');
-if(mobileToggle){
-  mobileToggle.addEventListener('click', () => {
-    const categoryNav = document.getElementById('categoryNav');
-    if(categoryNav) categoryNav.scrollIntoView({behavior:'smooth', block:'start'});
-  });
-}
-
-/* ========== INIT ========== */
-renderProducts();
-updateCartUI();
-</script>
-</body>
-</html>
+.service-card:hover .service-icon{background:linear-gradient(135deg,var(--deep-blue),var(--light-blue));color:#fff;t
